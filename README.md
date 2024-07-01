@@ -63,7 +63,7 @@ Para instalar e executar o TEAGuide localmente, siga os passos abaixo:
 - [Milena Duarte](https://github.com/milenaduarteicev)
 - [Max Santos]()
 - [Herminio Granja]()
-- [Marcos Vinicius Carvalho]()
-- [Guilherme Vinnicius Costa]()
+- [Marcos Vinnícius Carvalho]()
+- [Guilherme Vinicius Costa]()
 - [Luiz Antonio Miranda]()
 
