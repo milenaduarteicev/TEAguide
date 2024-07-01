@@ -50,7 +50,7 @@ Para instalar e executar o TEAGuide localmente, siga os passos abaixo:
 
 ## Imagens
 
-### Tela Inicial
+### Telas do App
 
 ![Tela Apresentação](screenshots/app.png)
 
