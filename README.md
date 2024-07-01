@@ -56,8 +56,7 @@ Para instalar e executar o TEAGuide localmente, siga os passos abaixo:
 
 
 ## GIF
-
-Veja o [GIF de exemplo](screenshots/teaguidedemonstracao.gif) para uma rápida visão geral do funcionamento do aplicativo.
+![teaguidedemonstracao](https://github.com/milenaduarteicev/TEAguide/assets/130483566/c519a952-fc26-4d7b-b8a2-37c294f3bb5f)
 
 # Autores
 
