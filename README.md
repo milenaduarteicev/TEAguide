@@ -52,9 +52,8 @@ Para instalar e executar o TEAGuide localmente, siga os passos abaixo:
 
 ### Tela Inicial
 
-![Tela Apresentação](screenshots/flutter_07.png)
-![Tela Inicial](screenshots/flutter_08.png)
-![Tela Categoria](screenshots/flutter_09.png)
+![Tela Apresentação](screenshots/app.png)
+
 
 ## GIF
 
