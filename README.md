@@ -64,6 +64,6 @@ Para instalar e executar o TEAGuide localmente, siga os passos abaixo:
 - [Max Santos]()
 - [Herminio Granja]()
 - [Marcos Vinicius Carvalho]()
-- [Guilherme Vinicius Costa]()
+- [Guilherme Vinnicius Costa]()
 - [Luiz Antonio Miranda]()
 
