@@ -1,54 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:teaguide/styles/constants.dart'; // Importe suas constantes e estilos
+import '../../custom_app_bar.dart'; 
 
 class EngajamentoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.white), // Setinha branca
-          onPressed: () {
-            Navigator.pop(context); // Volta para a tela anterior
-          },
-        ),
-        backgroundColor: Colors
-            .transparent, // Define fundo transparente para aplicar o degradê
-        elevation: 0, // Remove a sombra da AppBar
-        title: Padding(
-          padding: const EdgeInsets.only(left: 0),
-          child: Row(
-            children: [
-              Text(
-                'TEA Guide',
-                style: TextStyle(
-                  fontFamily: 'Baloo2',
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20.0,
-                  color: Colors.white, // Cor do texto
-                ),
-              ),
-              Spacer(),
-              CircleAvatar(
-                radius: 20.0,
-                backgroundColor:
-                    Colors.transparent, // Define fundo transparente
-                backgroundImage: AssetImage('assets/icons/logo-branco.png'),
-              ),
-            ],
-          ),
-        ),
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [kazul, kverde], // Gradiente do kazul para o kverde
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-          ),
-        ),
-      ),
+      backgroundColor:
+          Theme.of(context).scaffoldBackgroundColor, 
+      appBar: CustomAppBar(title: 'TEA Guide'), 
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,32 +17,33 @@ class EngajamentoPage extends StatelessWidget {
               padding: const EdgeInsets.only(left: 16.0),
               child: Text(
                 'Engajamento',
-                style: TextStyle(
-                  fontFamily: 'Baloo2',
-                  fontWeight: FontWeight.bold,
-                  fontSize: 24.0,
-                  color: Colors.black, // Cor do título
-                ),
+                style: Theme.of(context)
+                    .textTheme
+                    .titleLarge!
+                    .copyWith(fontSize: 24.0),
               ),
             ),
             SizedBox(height: 16.0), // Espaço entre o título e o primeiro item
             _buildItem(
+              context,
               'Distrações',
               'Minimize animações, fontes não convencionais e sons de fundo que possam distrair.',
-              //'assets/images/item1_image.png',
             ),
             SizedBox(height: 16.0), // Espaço entre os itens
             _buildItem(
+              context,
               'Minimalismo',
               'Projete interfaces simples com apenas o necessário para a tarefa.',
-            ), //'assets/images/item2_image.png'
+            ),
             SizedBox(height: 16.0), // Espaço entre os itens
             _buildItem(
+              context,
               'Organização',
               'Use espaços em branco para separar conteúdos e minimizar esforço cognitivo.',
-            ), //'assets/images/item3_image.png'
+            ),
             SizedBox(height: 16.0), // Espaço entre os itens
             _buildItem(
+              context,
               'Instruções claras',
               'Forneça instruções visuais e textuais para facilitar a navegação.',
             ),
@@ -93,7 +53,8 @@ class EngajamentoPage extends StatelessWidget {
     );
   }
 
-  Widget _buildItem(String itemName, String itemDescription) {
+  Widget _buildItem(
+      BuildContext context, String itemName, String itemDescription) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Column(
@@ -101,25 +62,14 @@ class EngajamentoPage extends StatelessWidget {
         children: [
           Text(
             itemName,
-            style: TextStyle(
-              fontFamily: 'Baloo2',
-              fontWeight: FontWeight.bold,
-              fontSize: 18.0,
-              color: Colors.black,
-            ),
+            style: Theme.of(context).textTheme.titleMedium,
           ),
           SizedBox(height: 4.0), // Espaço entre o texto do item e a descrição
-          // Use RichText para permitir uma melhor formatação
           RichText(
             textAlign: TextAlign.justify,
             text: TextSpan(
               text: itemDescription,
-              style: TextStyle(
-                fontFamily: 'Baloo2',
-                fontWeight: FontWeight.normal,
-                fontSize: 16.0,
-                color: Colors.black54, // Cor da descrição
-              ),
+              style: Theme.of(context).textTheme.bodyMedium,
             ),
           ),
           SizedBox(height: 8.0), // Espaço entre a descrição e a imagem

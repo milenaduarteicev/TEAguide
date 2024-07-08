@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "448810769031",
+    "project_id": "teaguide-26f61",
+    "storage_bucket": "teaguide-26f61.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:448810769031:android:89651aee3e8bdb10487622",
+        "android_client_info": {
+          "package_name": "com.mobile.teaguide"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "448810769031-hg0pl31sis986rm5ugirqsvft1guorb9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAxMGLy9BqioT8Tua5OjBmix3pXytjCjQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "448810769031-hg0pl31sis986rm5ugirqsvft1guorb9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "448810769031-ncdd46s040083jariic4ait39ti5c79v.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.teaguide"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

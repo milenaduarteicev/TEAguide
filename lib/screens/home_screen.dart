@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:teaguide/styles/constants.dart';
-import '../styles/styles.dart';
+import '../custom_app_bar.dart';
 
 // recomendações
-//import 'category_screen.dart';
 import 'recomendacoes/acoes.dart';
 import 'recomendacoes/envolvimento.dart';
 import 'recomendacoes/multimidia.dart';
@@ -24,7 +22,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   List<Map<String, dynamic>> _filteredCategories = [];
 
-  // Dados personalizáveis com páginas associadas
   final List<Map<String, dynamic>> categories = [
     {
       'title': 'Visual/Textual',
@@ -33,12 +30,10 @@ class _HomeScreenState extends State<HomeScreen> {
           'name': 'Cores',
           'page': CoresPage(),
         },
-        
         {
           'name': 'Textos',
           'page': CoresPage(),
         },
-        
         {
           'name': 'Legibilidade',
           'page': CoresPage(),
@@ -47,9 +42,8 @@ class _HomeScreenState extends State<HomeScreen> {
           'name': 'Compatibilidade',
           'page': CoresPage(),
         },
-        
       ],
-    }, 
+    },
     {
       'title': 'Customização',
       'items': [
@@ -186,7 +180,7 @@ class _HomeScreenState extends State<HomeScreen> {
           'page': ToquePage(),
         },
       ],
-    }, 
+    },
   ];
 
   @override
@@ -198,105 +192,51 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white, // Cor de fundo padrão
-      appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.white), // Setinha branca
-          onPressed: () {
-            Navigator.pop(context); // Volta para a tela anterior
-          },
-        ),
-        backgroundColor: Colors
-            .transparent, // Define fundo transparente para aplicar o degradê
-        elevation: 0, // Remove a sombra da AppBar
-        title: Padding(
-          padding: const EdgeInsets.only(left: 0),
-          child: Row(
-            children: [
-              Text(
-                'TEA Guide',
-                style: TextStyle(
-                  fontFamily: 'Baloo2',
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20.0,
-                  color: Colors.white, // Cor do texto
-                ),
-              ),
-              Spacer(),
-              CircleAvatar(
-                radius: 20.0,
-                backgroundColor:
-                    Colors.transparent, // Define fundo transparente
-                backgroundImage: AssetImage('assets/icons/logo-branco.png'),
-              ),
-            ],
-          ),
-        ),
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [kazul, kverde], // Gradiente do kazul para o kverde
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-          ),
-        ),
-      ),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      appBar: CustomAppBar(title: 'TEA Guide'),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 26.0), // Espaço reduzido entre o título e a lista
-          // Título Categorias
+          SizedBox(height: 26.0), 
+
           Padding(
-            padding:
-                const EdgeInsets.only(left: 16, bottom: 10), // Ajustado o padding
+            padding: const EdgeInsets.only(
+                left: 16, bottom: 10),
             child: Text(
               'Categorias',
-              style: TextStyle(
-                fontFamily: 'Baloo2',
-                fontWeight: FontWeight.bold,
-                fontSize: 20.0,
-                color: Colors.black, // Cor do título
-              ),
+              style: Theme.of(context).textTheme.titleLarge,
             ),
           ),
 
-          // Lista de botões suspensos
           Expanded(
             child: ListView.builder(
               itemCount:
-                  _filteredCategories.length, // Número de categorias filtradas
+                  _filteredCategories.length,
               itemBuilder: (context, categoryIndex) {
                 final category = _filteredCategories[categoryIndex];
                 return Theme(
                   data: ThemeData(
-                    // Ajusta a aparência do ExpansionTile
                     dividerColor:
-                        Colors.transparent, // Remove as linhas de divisão
+                        Colors.transparent,
                     hintColor:
-                        Colors.transparent, // Remove o ícone de seta colorido
+                        Colors.transparent,
                   ),
                   child: ExpansionTile(
                     title: Text(
                       category['title'],
-                      style: TextStyle(
-                        fontFamily: 'Baloo2',
-                        fontWeight: FontWeight.bold,
-                        fontSize:
-                            18.0, // Ajuste o tamanho da fonte se necessário
-                      ),
+                      style: Theme.of(context).textTheme.titleMedium,
                     ),
                     trailing: Container(
                       width: 24.0,
                       height: 24.0,
                       decoration: BoxDecoration(
-                        color: kazul, // Cor do círculo
+                        color: kazul,
                         shape: BoxShape.circle,
                       ),
                       child: Icon(
                         Icons.arrow_drop_down,
-                        color: Colors.white, // Cor da seta
-                        size: 24.0, // Tamanho da seta
+                        color: Colors.white,
+                        size: 24.0,
                       ),
                     ),
                     children:
@@ -304,24 +244,22 @@ class _HomeScreenState extends State<HomeScreen> {
                       final item = category['items'][itemIndex];
                       return Container(
                         margin: const EdgeInsets.only(
-                            bottom: 0), // Menos espaço entre itens
-                        padding:
-                            const EdgeInsets.only(left: 16.0, top: 0, bottom: 0), // Padding maior
+                            bottom: 0),
+                        padding: const EdgeInsets.only(
+                            left: 16.0, top: 0, bottom: 0),
                         child: ListTile(
-                          contentPadding:
-                              EdgeInsets.symmetric(horizontal: 24.0, vertical: 0),
+                          contentPadding: EdgeInsets.symmetric(
+                              horizontal: 24.0, vertical: 0),
                           title: Text(
                             item['name'],
-                            style: TextStyle(
-                              fontFamily: 'Baloo2',
-                            ),
+                            style: Theme.of(context).textTheme.bodyMedium,
                           ),
                           onTap: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (context) => item[
-                                    'page'], // Navega para a página associada
+                                    'page'],
                               ),
                             );
                           },

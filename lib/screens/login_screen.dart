@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:teaguide/styles/constants.dart';
-import '../styles/styles.dart';
 import 'home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -43,39 +41,18 @@ class LoginScreen extends StatelessWidget {
               alignment: Alignment.center,
               child: GestureDetector(
                 onTap: () {
-                  // Navegar para a HomeScreen
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => HomeScreen()),
                   );
                 },
                 child: Container(
-                  width: 220.0, // Largura fixa para o botão
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [kazul, kverde],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                    ),
-                    borderRadius: BorderRadius.circular(
-                        8.0),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.2),
-                        spreadRadius: 2,
-                        blurRadius: 5,
-                        offset: Offset(0, 3), // Deslocamento da sombra
-                      ),
-                    ],
-                  ),
+                  width: 220.0,
+                  decoration: Styles.googleButtonDecoration,
                   padding: EdgeInsets.symmetric(vertical: 12.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(width: 10.0),
-                      Text('Crie com a gente',
-                          style: Styles.googleButtonText),
-                    ],
+                  child: Center(
+                    child: Text('Crie com a gente',
+                        style: Styles.googleButtonText),
                   ),
                 ),
               ),
